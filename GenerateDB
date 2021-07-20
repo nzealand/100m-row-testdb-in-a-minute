@@ -6,6 +6,8 @@ The active column is either 0 or 1.*/
 
 Drop table user;
 
+Drop table u;
+
 create table IF NOT EXISTS u
 (
     area CHAR(6),
