@@ -1,0 +1,34 @@
+/* From https://avi.im/blag/2021/fast-sqlite-inserts/ - 
+The generated data would be random with following constraints: 
+The area column would hold six digits area code (any six digits would do, no validation). 
+The age would be any of 5, 10, or 15. 
+The active column is either 0 or 1.*/
+
+create table IF NOT EXISTS user
+(
+    area CHAR(6),
+    age INTEGER not null,
+    active INTEGER not null
+);
+
+/* Create non-random seed data, can be deleted if desired later*/
+insert into user values (873848,10,1);
+insert into user values (396835,15,0);
+insert into user values (928461,5,0);
+insert into user values (819475,10,1);
+
+/*Generate random data using cartesian products of joins, 
+the first cartesian join generates 16 random rows plus the four existing rows, 
+the second cartesian join generates 420 random rows plus the twenty existing rows,
+the third run generates 176,820 random rows. 
+The fourth would generate 31 billion rows, so we delete all but 10,000 rows which will give us the desired 100m rows of randomly generated data. */
+
+insert into user select round(abs(random())/9223381260236.03,0), case when random() > 3074457345618260000 then 5 when random() > 3074457345618260000 then 10 else 15 end age, case when random()>0 then 1 else 0 end active from user a, user b;
+
+insert into user select round(abs(random())/9223381260236.03,0), case when random() > 3074457345618260000 then 5 when random() > 3074457345618260000 then 10 else 15 end age, case when random()>0 then 1 else 0 end active from user a, user b;
+
+insert into user select round(abs(random())/9223381260236.03,0), case when random() > 3074457345618260000 then 5 when random() > 3074457345618260000 then 10 else 15 end age, case when random()>0 then 1 else 0 end active from user a, user b;
+
+delete from user where rowid > 6000;
+
+insert into user select round(abs(random())/9223381260236.03,0), case when random() > 3074457345618260000 then 5 when random() > 3074457345618260000 then 10 else 15 end age, case when random()>0 then 1 else 0 end active from user a, user b;
