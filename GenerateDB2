@@ -8,6 +8,8 @@ Drop table user;
 
 Drop table u;
 
+Drop table u3;
+
 create table IF NOT EXISTS u
 (
     area CHAR(6),
@@ -56,6 +58,29 @@ Insert into u2 select * from u;
 select time('now');
 Insert into u2 select * from u;
 select time('now');
+
+select time('now');
+Create table u3 as select * from u2;
+select time('now');
+Insert into u3 select * from u2;
+select time('now');
+Insert into u3 select * from u2;
+select time('now');
+Insert into u3 select * from u2;
+select time('now');
+Insert into u3 select * from u2;
+select time('now');
+Insert into u3 select * from u2;
+select time('now');
+Insert into u3 select * from u2;
+select time('now');
+Insert into u3 select * from u2;
+select time('now');
+Insert into u3 select * from u2;
+select time('now');
+Insert into u3 select * from u2;
+select time('now');
+
 
 drop table user;
 
