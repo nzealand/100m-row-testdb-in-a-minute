@@ -37,6 +37,7 @@ insert into u select round(abs(random())/9223381260236.03,0), case when random()
 
 delete from u where rowid > 100000;
 
+Drop table u2;
 select time('now');
 Create table u2 as select * from u;
 select time('now');
@@ -59,26 +60,50 @@ select time('now');
 Insert into u2 select * from u;
 select time('now');
 
+Drop table u;
 select time('now');
-Create table u3 as select * from u2;
+Create table u as select * from u2;
 select time('now');
-Insert into u3 select * from u2;
+Insert into u select * from u2;
 select time('now');
-Insert into u3 select * from u2;
+Insert into u select * from u2;
 select time('now');
-Insert into u3 select * from u2;
+Insert into u select * from u2;
 select time('now');
-Insert into u3 select * from u2;
+Insert into u select * from u2;
 select time('now');
-Insert into u3 select * from u2;
+Insert into u select * from u2;
 select time('now');
-Insert into u3 select * from u2;
+Insert into u select * from u2;
 select time('now');
-Insert into u3 select * from u2;
+Insert into u select * from u2;
 select time('now');
-Insert into u3 select * from u2;
+Insert into u select * from u2;
 select time('now');
-Insert into u3 select * from u2;
+Insert into u select * from u2;
+select time('now');
+
+Drop table u2;
+select time('now');
+Create table u2 as select * from u;
+select time('now');
+Insert into u2 select * from u;
+select time('now');
+Insert into u2 select * from u;
+select time('now');
+Insert into u2 select * from u;
+select time('now');
+Insert into u2 select * from u;
+select time('now');
+Insert into u2 select * from u;
+select time('now');
+Insert into u2 select * from u;
+select time('now');
+Insert into u2 select * from u;
+select time('now');
+Insert into u2 select * from u;
+select time('now');
+Insert into u2 select * from u;
 select time('now');
 
 
